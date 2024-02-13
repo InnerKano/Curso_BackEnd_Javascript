@@ -58,12 +58,16 @@
     text-align: center;
     grid-area: N;  
     
+    
   }
   a{
     text-decoration: none;
+    
   }
   ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
   }
   li {
     
