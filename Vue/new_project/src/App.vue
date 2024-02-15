@@ -7,10 +7,12 @@
       <ul>
         <li><a class="nav" href="#" @click.prevent="$emit('navigate', 'home')">Inicio</a></li>
         <li><a class="nav" href="#" @click.prevent="$emit('navigate', 'about')">Acerca de...</a></li>
+        <li><a class="nav" href="#" @click.prevent="$emit('navigate', 'img')">Imagenes</a></li>
+        
       </ul>
     </nav>
     <main>
-      <componente-01/>
+      <componente-01 :parametro="parametro" :parametro_num1="parametro_num1" :parametro_num2="parametro_num2"/>
     </main>
   </div>
 </template>
@@ -27,9 +29,20 @@
   export default {
     components: {
       Componente01
-    }
+    },
+    setup(){
+      let parametro = "Este es un parametro"
+      let parametro_num1 =  5;
+      let parametro_num2 = 10;
+      
+      return{
+        parametro,
+        parametro_num1,
+        parametro_num2,
+      };
+    },
     
-  }
+  };
 </script>
 
 
@@ -49,38 +62,42 @@
 
   h1 {
     font-size: 40px;
-    color: green;
+    color: rgb(0, 104, 0);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     list-style-type: none;
   }
 
   nav{
     text-align: center;
-    grid-area: N;  
-    
-    
+    grid-area: N;
   }
+
   a{
     text-decoration: none;
+    align-items: ;
+    color: black;
+    margin: 5%;
+    padding: 8px;
     
   }
   ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
   }
   li {
     
   }
-  .nav{
-    color: black;
-  }
+
   
   main{
     grid-area: M;
   }
+
   #grid {
-    background-image: linear-gradient(to left,rgba(43, 255, 0, 0.39),rgba(255, 166, 0, 0.589));
+    background-image: linear-gradient(to left,rgba(31, 184, 0, 0.473),rgba(182, 118, 0, 0.589));
     height: 100%;
     width: 100%;
     margin: 0px;
