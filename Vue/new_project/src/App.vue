@@ -1,7 +1,7 @@
 <template>
   <div id="grid" class="ContenedorGrid">
     <header>
-      <h1>PROYECTO EN VUE</h1>
+      <h1>Tres en Raya</h1>
     </header>
     <nav>
       <ul>
