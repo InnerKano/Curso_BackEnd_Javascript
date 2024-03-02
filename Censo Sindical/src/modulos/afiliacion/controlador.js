@@ -10,7 +10,22 @@ function obtenerRegAfiliado(id){
     return db.obtenerRegistro(TABLA, id);
 }
 
+function eliminarRegAfiliado(id){
+    return db.eliminarRegistro(TABLA, id);
+}
+
+function agregarRegAfiliado(id){
+    return db.agregarRegistro(TABLA, data);
+}
+
+function actualizarRegAfiliado(id){
+    return db.actualizarRegistro(TABLA, data);
+}
+
 module.exports = {
     obtenerAfiliados,
     obtenerRegAfiliado,
+    eliminarRegAfiliado,
+    agregarRegAfiliado,
+    actualizarRegAfiliado
 }

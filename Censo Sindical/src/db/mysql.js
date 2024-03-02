@@ -56,17 +56,35 @@ function obtenerRegistro(tabla, id){
 
 // Agrega un registro
 function agregarRegistro(tabla, data){
-
+    return new Promise ((resolve, reject) =>{
+        conexion.query(`SELECT * FROM ${tabla} SET ?`, [data],(err, result) => {
+            return !err ? resolve(result) : reject(console.log(`Algo salió mal al realizar la consulta: ${err}`));
+        });
+    });
 }
 
+//actualizar un resgistro
+function actualizarRegistro(tabla, data){
+    return new Promise ((resolve, reject) =>{
+        conexion.query(`UPDATE ${tabla} SET ? WHERE cedula = ?`,[data, data.cedula], (err, result) => {
+            return !err ? resolve(result) : reject(console.log(`Algo salió mal al realizar la consulta: ${err}`));
+        });
+    });
+}
 // Elimina  un registro
-function eliminarRegistro(tabla, id){
 
+function eliminarRegistro(tabla, id){
+    return new Promise ((resolve, reject) =>{
+        conexion.query(`DELETE FROM ${tabla} WHERE cedula = ${id}`, (err, result) => {
+            return !err ? resolve(result) : reject(console.log(`Algo salió mal al realizar la consulta: ${err}`));
+        });
+    });
 }
 
 module.exports = {
     obtenerDatos,
     obtenerRegistro,
     agregarRegistro,
+    actualizarRegistro,
     eliminarRegistro,
 }
